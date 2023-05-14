@@ -1,10 +1,15 @@
 'use client'
 import { Button } from '@/components/Button'
 import styles from './TweetButton.module.css'
+import { clsx } from 'clsx'
 
-export const TweetButton = () => {
+type Props = {
+  className?: string
+}
+
+export const TweetButton = ({ className }: Props) => {
   return (
-    <div className={styles.tweetButton}>
+    <div className={clsx(styles.tweetButton, className)}>
       <Button>ツイートする</Button>
     </div>
   )

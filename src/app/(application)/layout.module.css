@@ -1,16 +1,26 @@
 .applicationLayout {
-  max-width: 1200px;
+  max-width: 900px;
   margin: auto;
   display: flex;
+  min-height: 100vh;
 }
 
 .sidebar {
+  position: relative;
   width: 250px;
   display: flex;
   flex-direction: column;
   gap: 32px;
+  padding: 40px 8px;
+  border-right: 1px solid #eaeaea;
 }
 
 .content {
   flex: 1;
+  padding: 16px;
+}
+
+.userButton {
+  position: absolute;
+  bottom: 40px;
 }
