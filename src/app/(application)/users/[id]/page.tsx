@@ -1,4 +1,5 @@
-import { prisma } from '@/lib/db'
+import { Profile } from '@/components/Profile'
+import { Suspense } from 'react'
 
 type Props = {
   params: {
@@ -9,15 +10,12 @@ type Props = {
 export default async function Page({ params }: Props) {
   const { id } = params
 
-  const profile = await prisma.profile.findUnique({
-    where: {
-      userId: id,
-    },
-  })
-
-  if (!profile) {
-    throw new Error('profileが取得できません')
-  }
-
-  return <div>{JSON.stringify({ profile })}</div>
+  return (
+    <div>
+      <Suspense fallback={<div>loading...</div>}>
+        {/* @ts-ignore */}
+        <Profile userId={id} />{' '}
+      </Suspense>
+    </div>
+  )
 }
