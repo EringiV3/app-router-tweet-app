@@ -8,8 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write . && prisma format",
-    "db-ui": "prisma studio",
-    "generate-db-client": "prisma generate"
+    "db:ui": "prisma studio",
+    "db:generate-client": "prisma generate"
   },
   "dependencies": {
     "@clerk/nextjs": "^4.17.3",
