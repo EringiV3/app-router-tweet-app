@@ -8,7 +8,7 @@ export default async function Home() {
 
   return (
     <div>
-      <UserButton />
+      <UserButton afterSignOutUrl="/sign-in" />
     </div>
   )
 }
