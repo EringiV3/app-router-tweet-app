@@ -1,3 +1,4 @@
+import Loading from '@/components/Loading/Loading'
 import { Profile } from '@/components/Profile'
 import { Suspense } from 'react'
 
@@ -12,9 +13,10 @@ export default async function Page({ params }: Props) {
 
   return (
     <div>
-      <Suspense fallback={<div>loading...</div>}>
+      {/* Suspenseで囲うとStreaming SSRになる */}
+      <Suspense fallback={<Loading />}>
         {/* @ts-ignore */}
-        <Profile userId={id} />{' '}
+        <Profile userId={id} />
       </Suspense>
     </div>
   )
