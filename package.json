@@ -7,9 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier --write .",
+    "format": "prettier --write . && prisma format",
     "db-ui": "prisma studio",
-    "generate-prisma-client": "prisma generate"
+    "generate-db-client": "prisma generate"
   },
   "dependencies": {
     "@clerk/nextjs": "^4.17.3",
