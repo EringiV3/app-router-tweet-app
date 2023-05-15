@@ -1,10 +1,8 @@
-import { auth } from '@clerk/nextjs'
+import { isAuthenticated } from '@/lib/auth'
 import { redirect } from 'next/navigation'
 
 export default async function Home() {
-  const { userId } = auth()
-
-  if (!userId) {
+  if (!isAuthenticated()) {
     redirect('/sign-in')
   }
 

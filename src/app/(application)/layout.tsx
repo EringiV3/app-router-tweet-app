@@ -1,4 +1,4 @@
-import { UserButton, auth, currentUser } from '@clerk/nextjs'
+import { UserButton, getAuthenticatedUser } from '@/lib/auth'
 import styles from './layout.module.css'
 import { TweetButton } from '@/components/TweetButton'
 import { LinkButton } from '@/components/Button'
@@ -22,11 +22,7 @@ const menus: {
 ]
 
 export default async function ApplicationLayout({ children }: Props) {
-  const user = await currentUser()
-
-  if (!user) {
-    throw new Error('ユーザーを取得できませんでした')
-  }
+  const user = await getAuthenticatedUser()
 
   return (
     <div className={styles.applicationLayout}>
@@ -34,7 +30,7 @@ export default async function ApplicationLayout({ children }: Props) {
         {menus.map((menu) => (
           <LinkButton
             key={menu.name}
-            href={menu.path(user.id)}
+            href={menu.path(user.clerkUserId)}
             variant="transparent"
           >
             {menu.name}

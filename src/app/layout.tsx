@@ -1,4 +1,4 @@
-import { ClerkProvider } from '@clerk/nextjs'
+import { ClerkProvider } from '@/lib/auth'
 import './global.css'
 
 export const metadata = {

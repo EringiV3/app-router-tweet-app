@@ -1,5 +1,5 @@
 import { prisma } from '@/lib/db'
-import { currentUser } from '@clerk/nextjs'
+import { getAuthenticatedUser } from '@/lib/auth'
 import { Avatar } from '@/components/Avatar'
 import styles from './Profile.module.css'
 
@@ -9,7 +9,7 @@ type Props = {
 
 export const Profile = async ({ userId }: Props) => {
   const [user, profile] = await Promise.all([
-    currentUser(),
+    getAuthenticatedUser(),
     prisma.profile.findUnique({
       where: {
         userId,
