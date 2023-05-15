@@ -11,6 +11,7 @@ datasource db {
 }
 
 model User {
+  // TODO: idはuuidにして、clerkUserIdというカラムとdisplayIdを追加する
   id      String   @id
   profile Profile?
   tweets  Tweet[]
