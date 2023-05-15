@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import styles from './Avatar.module.css'
-import clsx from 'clsx'
+import { cx } from '@/lib/utils'
 
 type Props = {
   className?: string
@@ -11,7 +11,7 @@ type Props = {
 
 export const Avatar = ({ className, imageUrl, alt, size = 50 }: Props) => {
   return (
-    <div className={clsx(styles.avatar, className)}>
+    <div className={cx(styles.avatar, className)}>
       <Image
         className={styles.image}
         src={imageUrl}

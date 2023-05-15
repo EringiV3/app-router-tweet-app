@@ -1,7 +1,7 @@
 'use client'
 
-import { clsx } from 'clsx'
 import styles from './Button.module.css'
+import { cx } from '@/lib/utils'
 
 type Props = React.ComponentProps<'button'> & {
   className?: string
@@ -16,7 +16,7 @@ export const Button = ({
 }: Props) => {
   return (
     <button
-      className={clsx(styles.button, className, {
+      className={cx(styles.button, className, {
         [styles.primary]: variant === 'primary',
         [styles.secondary]: variant === 'secondary',
       })}

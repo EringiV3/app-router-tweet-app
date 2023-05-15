@@ -1,8 +1,8 @@
 'use client'
 
-import { clsx } from 'clsx'
 import styles from './Button.module.css'
 import Link from 'next/link'
+import { cx } from '@/lib/utils'
 
 type Props = Omit<React.ComponentProps<'a'>, 'href' | 'ref'> & {
   className?: string
@@ -20,7 +20,7 @@ export const LinkButton = ({
   return (
     <Link
       href={href}
-      className={clsx(styles.button, styles.linkButton, className, {
+      className={cx(styles.button, styles.linkButton, className, {
         [styles.primary]: variant === 'primary',
         [styles.secondary]: variant === 'secondary',
         [styles.transparent]: variant === 'transparent',
