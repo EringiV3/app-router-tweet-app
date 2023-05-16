@@ -1,7 +1,7 @@
 import { UserButton, getAuthenticatedUser } from '@/lib/auth'
 import styles from './layout.module.css'
-import { TweetButton } from '@/components/TweetButton'
-import { LinkButton } from '@/components/Button'
+import { TweetButton } from '@/models/tweet/components/TweetButton'
+import { LinkButton } from '@/components/ui/Button'
 
 type Props = {
   children: React.ReactNode

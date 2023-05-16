@@ -1,6 +1,6 @@
 'use client'
 
-import { Button } from '@/components/Button'
+import { Button } from '@/components/ui/Button'
 import styles from './TweetButton.module.css'
 import { cx } from '@/lib/utils'
 

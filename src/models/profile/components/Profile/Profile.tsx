@@ -1,23 +1,21 @@
-import { prisma } from '@/lib/db'
 import { getAuthenticatedUser } from '@/lib/auth'
-import { Avatar } from '@/components/Avatar'
+import { Avatar } from '@/components/ui/Avatar'
 import styles from './Profile.module.css'
+import { ProfileUsecase } from '@/models/profile/usecase'
 
 type Props = {
   userId: string
 }
 
 export const Profile = async ({ userId }: Props) => {
+  const profileUsecase = new ProfileUsecase()
+
   const [user, profile] = await Promise.all([
     getAuthenticatedUser(),
-    prisma.profile.findUnique({
-      where: {
-        userId,
-      },
-    }),
+    profileUsecase.getProfileByUserId(userId),
   ])
 
-  if (!user || !profile) {
+  if (!profile) {
     throw new Error('profileが取得できません')
   }
 

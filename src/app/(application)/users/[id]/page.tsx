@@ -1,5 +1,5 @@
-import Loading from '@/components/Loading/Loading'
-import { Profile } from '@/components/Profile'
+import { Loading } from '@/components/ui/Loading'
+import { Profile } from '@/models/profile/components/Profile'
 import { Suspense } from 'react'
 
 type Props = {
