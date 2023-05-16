@@ -2,7 +2,7 @@
 
 import styles from './Button.module.css'
 import Link from 'next/link'
-import { cx } from '@/lib/utils'
+import { cx } from '@/libs/utils'
 
 type Props = Omit<React.ComponentProps<'a'>, 'href' | 'ref'> & {
   className?: string

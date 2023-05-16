@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import styles from './Avatar.module.css'
-import { cx } from '@/lib/utils'
+import { cx } from '@/libs/utils'
 
 type Props = {
   className?: string

@@ -1,4 +1,4 @@
-import { getAuthenticatedUser } from '@/lib/auth'
+import { getAuthenticatedUser } from '@/libs/auth'
 import { redirect } from 'next/navigation'
 import { UserUsecase } from '@/models/user/usecase'
 

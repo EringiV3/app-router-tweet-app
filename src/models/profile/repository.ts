@@ -1,4 +1,4 @@
-import { db } from '@/lib/db'
+import { db } from '@/libs/db'
 
 export class ProfileRepository {
   public async getProfileByUserId(userId: string) {

@@ -2,7 +2,7 @@
 
 import { Button } from '@/components/ui/Button'
 import styles from './TweetButton.module.css'
-import { cx } from '@/lib/utils'
+import { cx } from '@/libs/utils'
 
 type Props = {
   className?: string

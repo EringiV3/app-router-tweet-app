@@ -1,4 +1,4 @@
-import { UserButton, getAuthenticatedUser } from '@/lib/auth'
+import { UserButton, getAuthenticatedUser } from '@/libs/auth'
 import styles from './layout.module.css'
 import { TweetButton } from '@/models/tweet/components/TweetButton'
 import { LinkButton } from '@/components/ui/Button'

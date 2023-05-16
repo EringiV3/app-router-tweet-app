@@ -1,4 +1,4 @@
-import { getAuthenticatedUser } from '@/lib/auth'
+import { getAuthenticatedUser } from '@/libs/auth'
 import { Avatar } from '@/components/ui/Avatar'
 import styles from './Profile.module.css'
 import { ProfileUsecase } from '@/models/profile/usecase'

@@ -1,4 +1,4 @@
-import { isAuthenticated } from '@/lib/auth'
+import { isAuthenticated } from '@/libs/auth'
 import { redirect } from 'next/navigation'
 
 export default async function Home() {

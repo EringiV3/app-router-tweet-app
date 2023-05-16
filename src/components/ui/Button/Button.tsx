@@ -1,7 +1,7 @@
 'use client'
 
 import styles from './Button.module.css'
-import { cx } from '@/lib/utils'
+import { cx } from '@/libs/utils'
 
 type Props = React.ComponentProps<'button'> & {
   className?: string

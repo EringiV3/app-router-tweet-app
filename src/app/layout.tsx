@@ -1,4 +1,4 @@
-import { ClerkProvider } from '@/lib/auth'
+import { ClerkProvider } from '@/libs/auth'
 import './global.css'
 
 export const metadata = {
