@@ -1,14 +1,10 @@
-import { UserButton, auth, currentUser } from '@clerk/nextjs'
+import { isAuthenticated } from '@/libs/auth'
+import { redirect } from 'next/navigation'
 
 export default async function Home() {
-  const { userId } = auth()
-  const user = await currentUser()
+  if (!isAuthenticated()) {
+    redirect('/sign-in')
+  }
 
-  console.log({ userId, user })
-
-  return (
-    <div>
-      <UserButton afterSignOutUrl="/sign-in" />
-    </div>
-  )
+  redirect('/tweets')
 }

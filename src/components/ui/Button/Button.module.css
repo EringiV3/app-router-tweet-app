@@ -1,0 +1,45 @@
+.button {
+  padding: 8px 24px;
+  border: none;
+  border-radius: 24px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+}
+
+.button.primary {
+  background-color: rgb(29, 155, 240);
+  color: white;
+}
+
+.button.secondary {
+  background-color: white;
+  color: black;
+  border: 1px solid rgb(207, 217, 222);
+}
+
+.button.transparent {
+  background-color: transparent;
+  color: black;
+}
+
+.button:hover {
+  background-color: #eaeaea;
+}
+
+.button.primary:hover {
+  background-color: rgb(131, 200, 246);
+}
+
+.button.secondary:hover {
+  background-color: #ccc;
+}
+
+.button.transparent:hover {
+  background-color: rgb(15, 20, 25, 0.1);
+}
+
+.linkButton {
+  width: fit-content;
+}

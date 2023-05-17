@@ -11,7 +11,8 @@ datasource db {
 }
 
 model User {
-  id      String   @id
+  id      String   @id @default(uuid())
+  clerkUserId String @unique
   profile Profile?
   tweets  Tweet[]
   likes   Like[]

@@ -1,4 +1,4 @@
-import { authMiddleware } from '@clerk/nextjs'
+import { authMiddleware } from '@/libs/auth'
 
 /**
  * @see https://clerk.com/docs/nextjs/middleware
