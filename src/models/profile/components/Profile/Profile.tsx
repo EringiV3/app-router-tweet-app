@@ -15,10 +15,6 @@ export const Profile = async ({ userId }: Props) => {
     profileUsecase.getProfileByUserId(userId),
   ])
 
-  if (!profile) {
-    throw new Error('profileが取得できません')
-  }
-
   return (
     <div className={styles.profile}>
       <div className={styles.avatar}>
