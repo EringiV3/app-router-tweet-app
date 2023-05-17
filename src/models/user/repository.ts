@@ -1,10 +1,10 @@
 import { db } from '@/libs/db'
 
 export class UserRepository {
-  public async getUserByClerkId(clerkId: string) {
+  public async getUserByClerkUserId(clerkUserId: string) {
     const user = await db.user.findUnique({
       where: {
-        id: clerkId,
+        clerkUserId,
       },
     })
 
@@ -14,7 +14,7 @@ export class UserRepository {
   public async createUser(seed: { clerkUserId: string }) {
     const user = await db.user.create({
       data: {
-        id: seed.clerkUserId,
+        clerkUserId: seed.clerkUserId,
       },
     })
     return user

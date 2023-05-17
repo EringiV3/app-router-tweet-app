@@ -9,9 +9,6 @@ export class ProfileUsecase {
 
   public async getProfileByUserId(userId: string) {
     const profile = await this.profileRepository.getProfileByUserId(userId)
-    if (!profile) {
-      throw new Error('profileが取得できません')
-    }
     return profile
   }
 }

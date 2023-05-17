@@ -11,13 +11,20 @@ export class UserUsecase {
   }
 
   public async registerUser(seed: { clerkUserId: string }) {
-    const user = await this.userRepository.getUserByClerkId(seed.clerkUserId)
+    const user = await this.userRepository.getUserByClerkUserId(
+      seed.clerkUserId
+    )
     if (!user) {
-      await this.userRepository.createUser(seed)
+      const createdUser = await this.userRepository.createUser(seed)
       await this.profileRepository.createProfile({
-        userId: seed.clerkUserId,
-        bio: '',
+        userId: createdUser.id,
+        bio: 'よろしくおねがいします！',
       })
     }
+  }
+
+  public async getUserByClerkUserId(clerkUserId: string) {
+    const user = await this.userRepository.getUserByClerkUserId(clerkUserId)
+    return user
   }
 }

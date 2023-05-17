@@ -2,6 +2,7 @@ import { getAuthenticatedUser } from '@/libs/auth'
 import { Avatar } from '@/components/ui/Avatar'
 import styles from './Profile.module.css'
 import { ProfileUsecase } from '@/models/profile/usecase'
+import { NotFound } from '@/components/ui/NotFound'
 
 type Props = {
   userId: string
@@ -14,6 +15,10 @@ export const Profile = async ({ userId }: Props) => {
     getAuthenticatedUser(),
     profileUsecase.getProfileByUserId(userId),
   ])
+
+  if (!profile) {
+    return <NotFound message="このアカウントは存在しません。" />
+  }
 
   return (
     <div className={styles.profile}>
