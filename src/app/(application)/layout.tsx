@@ -3,6 +3,7 @@ import styles from './layout.module.css'
 import { TweetButton } from '@/models/tweet/components/TweetButton'
 import { LinkButton } from '@/components/ui/Button'
 import { UserUsecase } from '@/models/user/usecase'
+import { createTweet } from '@/models/tweet/actions'
 
 type Props = {
   children: React.ReactNode
@@ -44,7 +45,7 @@ export default async function ApplicationLayout({ children }: Props) {
             {menu.name}
           </LinkButton>
         ))}
-        <TweetButton />
+        <TweetButton onSubmit={createTweet} />
         <div className={styles.userButton}>
           <UserButton afterSignOutUrl="/sign-in" />
         </div>

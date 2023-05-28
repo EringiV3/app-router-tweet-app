@@ -5,12 +5,14 @@ import styles from './TweetButton.module.css'
 import { cx } from '@/libs/utils'
 import { useCallback, useState } from 'react'
 import { TweetModal } from '@/models/tweet/components/TweetModal'
+import { createTweet } from '@/models/tweet/actions'
 
 type Props = {
   className?: string
+  onSubmit: typeof createTweet
 }
 
-export const TweetButton = ({ className }: Props) => {
+export const TweetButton = ({ className, onSubmit }: Props) => {
   const [isOpenModal, setIsOpenModal] = useState(false)
 
   const handleClose = useCallback(() => {
@@ -29,7 +31,11 @@ export const TweetButton = ({ className }: Props) => {
       >
         ツイートする
       </Button>
-      <TweetModal isOpen={isOpenModal} onClose={handleClose} />
+      <TweetModal
+        isOpen={isOpenModal}
+        onClose={handleClose}
+        onSubmit={onSubmit}
+      />
     </>
   )
 }
