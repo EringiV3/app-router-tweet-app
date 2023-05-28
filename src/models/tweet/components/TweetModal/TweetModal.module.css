@@ -7,3 +7,13 @@
   gap: 16px;
   margin-top: 16px;
 }
+
+.textarea {
+  width: 100%;
+  padding: 8px;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  resize: none;
+  font-weight: normal;
+}

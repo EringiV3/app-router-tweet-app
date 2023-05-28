@@ -3,9 +3,8 @@ import { Button } from '@/components/ui/Button'
 import { Modal } from '@/components/ui/Modal'
 import { cx } from '@/libs/utils'
 import styles from './TweetModal.module.css'
-import { useCallback, useTransition } from 'react'
+import { useCallback, useState, useTransition } from 'react'
 import { createTweet } from '@/models/tweet/actions'
-import { getAuthenticatedUser } from '@/libs/auth'
 
 type Props = {
   className?: string
@@ -24,22 +23,46 @@ type Props = {
 export const TweetModal = ({ className, isOpen, onClose, onSubmit }: Props) => {
   const [isPending, startTransition] = useTransition()
 
+  const [text, setText] = useState<string>('')
+
+  const handleClose = useCallback(() => {
+    setText('')
+    onClose()
+  }, [onClose])
+
+  const handleChangeText = useCallback(
+    (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+      setText(e.target.value)
+    },
+    []
+  )
+
   const handleClickTweet = useCallback(async () => {
-    startTransition(() => {
-      onSubmit('hoge')
+    startTransition(async () => {
+      await onSubmit(text)
+      handleClose()
     })
-  }, [onSubmit])
+  }, [handleClose, onSubmit, text])
 
   return (
     <Modal
       className={cx(styles.tweetModal, className)}
       isOpen={isOpen}
-      onClose={onClose}
+      onClose={handleClose}
     >
-      <div>モーダル</div>
+      <div>
+        <textarea
+          className={styles.textarea}
+          placeholder="いまどうしてる？"
+          rows={10}
+          autoFocus
+          value={text}
+          onChange={handleChangeText}
+        />
+      </div>
 
       <div className={styles.buttons}>
-        <Button variant="secondary" onClick={onClose}>
+        <Button variant="secondary" onClick={handleClose}>
           キャンセル
         </Button>
         <Button onClick={handleClickTweet} disabled={isPending}>
