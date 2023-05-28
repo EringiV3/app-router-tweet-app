@@ -18,7 +18,7 @@ export class UserUsecase {
       const createdUser = await this.userRepository.createUser(seed)
       await this.profileRepository.createProfile({
         userId: createdUser.id,
-        bio: 'よろしくおねがいします！',
+        bio: 'No bio yet.',
       })
     }
   }
