@@ -8,6 +8,16 @@ export {
   SignUp,
 } from '@clerk/nextjs'
 
+export const getClerkUserId = async () => {
+  const { userId } = auth()
+
+  if (!userId) {
+    throw new Error('userIdが取得できませんでした。')
+  }
+
+  return userId
+}
+
 export const getAuthenticatedUser = async () => {
   const user = await currentUser()
 
